@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 const product = require('./routes/product.route');
@@ -13,10 +14,12 @@ app.listen(PORT, () => { console.log('\n >>>> Server is up and running on port',
 
 // `mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASS}@claw85-l78sx.mongodb.net/test?retryWrites=true&w=majority`
 
-mongoose.connect(
-  `mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASS}@claw85-l78sx.mongodb.net/test?retryWrites=true&w=majority`,
-  {
-    useNewUrlParser: true
-  }
-);
 
+const MongoClient = require('mongodb').MongoClient;
+const uri = `mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASS}@claw85-l78sx.mongodb.net/test?retryWrites=true&w=majority`;
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
