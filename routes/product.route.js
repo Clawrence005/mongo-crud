@@ -12,5 +12,7 @@ router.get('/all', product_controller.product_get_all);
 router.get('/:id', product_controller.product_details);
 //update by id
 router.put('/:id/update', product_controller.product_update);
+// delete by id
+router.delete('/:id/delete', product_controller.product_delete);
 
 module.exports = router;

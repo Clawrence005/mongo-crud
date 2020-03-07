@@ -52,3 +52,11 @@ exports.product_update = function (req, res) {
     res.send(`Product ${product} updated`)
   })
 };
+
+// delete by id
+exports.product_delete = function (req, res) {
+  Product.findByIdAndRemove(req.params.id, function (err) {
+    if (err) return err;
+    res.send(`Successfully deleted item`)
+  })
+}
