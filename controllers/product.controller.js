@@ -6,6 +6,17 @@ exports.test = function (req, res) {
   res.send('greetings from the test controller')
 }
 
+
+
+exports.product_get_all = function (req, res) {
+
+  Product.find({}, function (err, product) {
+    if (err) return err;
+    console.log("alll")
+    res.json(product)
+  })
+};
+
 exports.product_create = function (req, res) {
   let product = new Product(
     {
@@ -18,8 +29,15 @@ exports.product_create = function (req, res) {
 
   product.save(function (err) {
     if (err) {
-      return next(err);
+      return err;
     }
     res.send('Product Created successfully')
+  })
+};
+
+exports.product_details = function (req, res) {
+  Product.findById(req.params.id, function (err, product) {
+    if (err) return err;
+    res.send(product)
   })
 };
