@@ -7,16 +7,17 @@ exports.test = function (req, res) {
 }
 
 
-
+// get request gets all products
 exports.product_get_all = function (req, res) {
 
   Product.find({}, function (err, product) {
     if (err) return err;
-    console.log("alll")
+    console.log("get all \n", product)
     res.json(product)
   })
 };
 
+//creates new product
 exports.product_create = function (req, res) {
   let product = new Product(
     {
@@ -31,13 +32,23 @@ exports.product_create = function (req, res) {
     if (err) {
       return err;
     }
-    res.send('Product Created successfully')
+    // res.send('Product Created successfully');
+    res.json(product)
   })
 };
 
+//lets you find by id
 exports.product_details = function (req, res) {
   Product.findById(req.params.id, function (err, product) {
     if (err) return err;
     res.send(product)
+  })
+};
+
+// update by id
+exports.product_update = function (req, res) {
+  Product.findByIdAndUpdate(req.params.id, { $set: req.body }, function (err, product) {
+    if (err) return err;
+    res.send(`Product ${product} updated`)
   })
 };
