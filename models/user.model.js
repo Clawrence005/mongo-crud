@@ -12,6 +12,7 @@ let UserSchema = new Schema({
   image: { type: String },
   hash: { type: String },
   salt: { type: String }
+
 }, { timestamps: true });
 
 module.exports = mongoose.model('User', UserSchema)

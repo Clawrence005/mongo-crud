@@ -57,3 +57,4 @@ exports.product_delete = function (req, res) {
     if (err) return err;
     res.send(`Successfully deleted item`)
   })
+};
