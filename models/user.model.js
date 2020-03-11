@@ -10,8 +10,8 @@ let UserSchema = new Schema({
   email: { type: String, required: true, unique: true },
   bio: { type: String },
   image: { type: String },
-  hash: { type: String },
-  salt: { type: String }
+  // hash: { type: String },
+  // salt: { type: String }
 
 }, { timestamps: true });
 

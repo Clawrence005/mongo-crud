@@ -2,7 +2,7 @@ const Product = require('../models/product.model');
 
 //simple test
 exports.test = function (req, res) {
-  res.send('greetings from the test controller')
+  res.send('greetings from the Product test controller')
 }
 
 // gets all Products
@@ -10,7 +10,7 @@ exports.product_get_all = function (req, res) {
 
   Product.find({}, function (err, product) {
     if (err) return err;
-    console.log("get all \n", product)
+    console.log("get all Products:\n", product)
     res.json(product)
   })
 };
