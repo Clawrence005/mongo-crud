@@ -21,6 +21,7 @@ exports.user_create = function (req, res) {
     image: req.body.image,
   })
   console.log("user just created: \n", user)
+
   user.save(function (err) {
     if (err) {
       return err;
@@ -28,3 +29,4 @@ exports.user_create = function (req, res) {
     res.json(user)
   })
 };
+

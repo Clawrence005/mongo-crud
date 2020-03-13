@@ -9,6 +9,7 @@ const app = express();
 
 // Set up mongoose connection
 const mongoose = require('mongoose');
+mongoose.set('useCreateIndex', true)
 let dev_db_url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@claw85-l78sx.mongodb.net/test`;
 
 

@@ -10,3 +10,9 @@ tested on postman
 features a dot env file for MongoDB password and username
 
 create read update and delete
+
+MVC Pattern
+
+>>Models: caresabout data === ajax calls. cares about JSON from the server;
+>>Views: is concerned with the DOM and HTML manipulation.
+>>Controller: mediator between view and model, concerned with client-side logic and related events(such as a user pressing a button).
